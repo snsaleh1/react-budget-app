@@ -1,9 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './style.css';
 
 const AddBill = () => {
+
+    console.log(useState(''));
+
+
     return(
-        <div>Hello from AddBill</div>
+        <></>
     );
 };
 
