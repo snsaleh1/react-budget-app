@@ -9,6 +9,11 @@ const AddBill = () => {
 
     return(
         <div className='add-bill-container'>
+            <input className='add-bill-form-control form-control'
+            placeholder='Enter bill title'
+            type='text'
+            value={newBillTitle}
+            onChange={(e) => setNewBillTitle(e.target.value)}></input>
         
         </div>
     );
