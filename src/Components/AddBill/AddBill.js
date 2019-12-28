@@ -3,11 +3,14 @@ import './style.css';
 
 const AddBill = () => {
 
-    console.log(useState(''));
-
+    const [newBillTitle, setNewBillTitle] = useState('');
+    const [newBillCost, setNewBillCost] = useState('');
+    //automatically makes inputs strings...
 
     return(
-        <></>
+        <div className='add-bill-container'>
+        
+        </div>
     );
 };
 
