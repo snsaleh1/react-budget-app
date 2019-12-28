@@ -7,7 +7,15 @@ const AddBill = () => {
     const [newBillCost, setNewBillCost] = useState('');
     //But automatically makes inputs strings...
 
-
+    //function to tell us whether the form is valid:
+    const billObjectValid = () => {
+        //newBillCost is truthy AND is a number
+        const costValid = newBillCost && Number.parseFloat(newBillCost);
+        //newBillTitle is truthy AND not just whitespace characters
+        const titleValid = newBillTitle &&
+            newBillTitle.split('').find(char => char !== ' ');
+        return titleValid && costValid;
+    };
 
     return(
         <div className='add-bill-container'>
@@ -21,7 +29,10 @@ const AddBill = () => {
             type='number'
             value={newBillCost}
             onChange={(e) => setNewBillCost(e.target.value)}></input>
-            <button className='add-bill-form-control btn btn-primary'>Add Bill</button>
+            <button className='add-bill-form-control btn btn-primary'
+            onClick={() => {
+
+            }}>Add Bill</button>
         
         </div>
     );
