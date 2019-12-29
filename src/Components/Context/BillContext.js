@@ -15,13 +15,19 @@ const BillProvider = ({children}) => {
     }, [bills]);
 
     const updateBills = (bill) => {
-       const updatedBills = [
-           ...bills,
-           bill
-       ];
-       localStorage.setItem('portexe-bills', JSON.stringify(updatedBills));
-       setBills(updatedBills);
-    }
+        const updatedBills =  alphabeticalOrder([
+          ...bills,
+          bill
+        ]);
+        localStorage.setItem('portexe-bills', JSON.stringify(updatedBills));
+        setBills(updatedBills);
+      };
+    
+      const alphabeticalOrder = (bills) => {
+        return bills.sort((a,b) => 
+          a.title.toUpperCase() < b.title.toUpperCase() ? -1 : 0);
+      };
+      
     return(
         <BillContext.Provider value={{
             bills,
