@@ -1,8 +1,8 @@
-import React, { useState, createContext, useEffect, Component } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 
 const BillContext = createContext();
 
-const BillProvider = ({children}) => {
+const BillProvider = ({ children }) => {
 
     const [bills, setBills] = useState([]);
 
@@ -15,23 +15,34 @@ const BillProvider = ({children}) => {
     }, [bills]);
 
     const updateBills = (bill) => {
-        const updatedBills =  alphabeticalOrder([
-          ...bills,
-          bill
+        const updatedBills = alphabeticalOrder([
+            ...bills,
+            bill
         ]);
         localStorage.setItem('portexe-bills', JSON.stringify(updatedBills));
         setBills(updatedBills);
-      };
-    
-      const alphabeticalOrder = (bills) => {
-        return bills.sort((a,b) => 
-          a.title.toUpperCase() < b.title.toUpperCase() ? -1 : 0);
-      };
-      
-    return(
+    };
+
+    const alphabeticalOrder = (bills) => {
+        return bills.sort((a, b) =>
+            a.title.toUpperCase() < b.title.toUpperCase() ? -1 : 0);
+    };
+
+    const editBill = (billToUpdate) => {
+        const billsFiltered = bills.filter((bill) => bill.title !== billToUpdate.title);
+        const updatedBills = alphabeticalOrder([
+            ...billsFiltered,
+            billToUpdate
+        ]);
+        localStorage.setItem('portexe-bills', JSON.stringify(updatedBills));
+        setBills(updatedBills);
+    };
+
+    return (
         <BillContext.Provider value={{
             bills,
-            updateBills
+            updateBills,
+            editBill
         }}>
             {children}
         </BillContext.Provider>
