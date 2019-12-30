@@ -4,10 +4,11 @@ import { BillContext } from '../../Context/BillContext';
 
 const BillList = () => {
 
-    const { bills, editBill } = useContext(BillContext);
+    const { bills, editBill, setEditModeEnabled } = useContext(BillContext);
 
     return (
         <div className='bill-list-container'>
+            <h6 className='edit-mode-btn' onClick={() => setEditModeEnabled(true)}>Edit</h6>
         {
             bills.map((bill, index) => {
                 return(

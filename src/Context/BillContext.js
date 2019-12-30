@@ -41,7 +41,7 @@ const BillProvider = ({ children }) => {
     };
 
     const deleteBill = (billToDelete) => {
-        const billsFiltered = bills.filter((bill) => bill.title !== billToDelete.title);
+        const updatedBills = bills.filter((bill) => bill.title !== billToDelete.title);
         localStorage.setItem('portexe-bills', JSON.stringify(updatedBills));
         setBills(updatedBills);
     };
