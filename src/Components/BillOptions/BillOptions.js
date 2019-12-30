@@ -3,9 +3,24 @@ import './style.css';
 import { BillContext } from '../../Context/BillContext';
 
 const BillOptions = () => {
+
+    const { selectedCostInterval, setSelectedCostInterval } = useContext(BillContext);
     
     return (
-        <>Hello From Bill Options</>
+        <div className='interval-options-container'>
+            <div className={selectedCostInterval === 'Daily' ? 'selected-interval' : 'interval'}
+            onClick={(e) => setSelectedCostInterval(e.target.innerText)}>
+                Daily
+            </div>
+            <div className={selectedCostInterval === 'Monthly' ? 'selected-interval' : 'interval'}
+            onClick={(e) => setSelectedCostInterval(e.target.innerText)}>
+                Monthly
+            </div>
+            <div className={selectedCostInterval === 'Yearly' ? 'selected-interval' : 'interval'}
+            onClick={(e) => setSelectedCostInterval(e.target.innerText)}>
+                Yearly
+            </div>
+        </div>
       );
 };
 
