@@ -4,11 +4,13 @@ import AddBill from '../AddBill/AddBill';
 import BillList from '../BillList/BillList';
 import { BillProvider } from '../../Context/BillContext';
 import BillTotal from '../BillTotal/BillTotal';
+import BillOptions from '../BillOptions/BillOptions';
 
 const App = () => {
   return (
     <div className='bills-container'>
       <BillProvider>
+        <BillOptions />
         <AddBill />
         <BillTotal />
         <BillList />
