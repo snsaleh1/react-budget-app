@@ -55,6 +55,7 @@ const BillProvider = ({ children }) => {
             setSelectedCostInterval,
             setEditModeEnabled,
             editModeEnabled,
+            deleteBill
 
         }}>
             {children}

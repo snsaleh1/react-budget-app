@@ -5,6 +5,7 @@ import BillList from '../BillList/BillList';
 import { BillContext } from '../../Context/BillContext';
 import BillTotal from '../BillTotal/BillTotal';
 import BillOptions from '../BillOptions/BillOptions';
+import EditBills from '../EditBills/EditBills';
 
 const App = () => {
 
@@ -12,10 +13,9 @@ const App = () => {
 
   return (
     <div className='bills-container'>
-        <BillOptions />
-        <AddBill />
-        <BillTotal />
-        <BillList />
+        {
+          editModeEnabled ? <EditBills /> : <span><BillOptions /><AddBill /><BillTotal /><BillList /></span>
+        }
     </div>
   );
 }
